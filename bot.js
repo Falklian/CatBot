@@ -20,6 +20,12 @@ client.on('message', async message => {
             files: [body.file]
         });
     }
+
+    if (command === 'hiss') {
+        message.channel.send({
+            files: ['https://i.kym-cdn.com/photos/images/original/001/096/013/02d.jpg']
+        });
+    }
 });
 
 client.login(process.env.BOT_TOKEN);
