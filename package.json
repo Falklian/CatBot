@@ -1,0 +1,19 @@
+{
+  "name": "cat-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that displays cat pictures.",
+  "main": "bot.js",
+  "author": "Bill Walker <falklian@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+      "dev": "nodemon bot.js",
+      "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "node-fetch": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
