@@ -14,10 +14,18 @@ client.on('message', async message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+    let mimeTypes = 'jpg,png,gif';
+    if (args.length) {
+        mimeTypes = args.shift().toLowerCase();
+    }
+
     if (command === 'cat') {
-        const body = await fetch('https://aws.random.cat/meow').then(response => response.json());
+        //const body = await fetch('https://aws.random.cat/meow').then(response => response.json());
+        const body = await fetch(`https://api.thecatapi.com/v1/images/search?mime_types=${mimeTypes}`, {
+            headers: { 'x-api-key' : process.env.CAT_API_KEY }
+        }).then(response => response.json());
         message.channel.send({
-            files: [body.file]
+            files: [body[0].url]
         });
     }
 
